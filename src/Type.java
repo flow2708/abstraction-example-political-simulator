@@ -1,3 +1,3 @@
 public enum Type {
-    BARRACKS, TOWNHALL
+    BARRACKS, TOWNHALL;
 }

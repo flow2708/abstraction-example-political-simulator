@@ -9,7 +9,7 @@ public class PolitModSimulator {
         red.addBuilding(new BarracksBuilding(Type.BARRACKS, 1, "simple"));
         blue.addBuilding(new TownHallBuilding(Type.TOWNHALL, 1, "simple"));
 
-        for (int i = 1; i <= 100; i++) {
+        for (int i = 1; i <= 10; i++) {
             System.out.println("\n>>>> ТИК #" + i);
             red.onTick();
             blue.onTick();
