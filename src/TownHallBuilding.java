@@ -10,23 +10,23 @@ public class TownHallBuilding extends BuildingBase{
             faction.addTreasury(10.0 * this.level);
     }
     @Override
-    public Map<String, Integer> getUpgradeCost() {
-        Map<String, Integer> cost = new HashMap<>();
+    public Map<Resource, Integer> getUpgradeCost() {
+        Map<Resource, Integer> cost = new HashMap<>();
 
         switch (level) {
             case 1:
-                cost.put("coin", 100);
-                cost.put("wood", 64);
+                cost.put(Resource.COIN, 100);
+                cost.put(Resource.WOOD, 64);
                 break;
             case 2:
-                cost.put("coin", 200);
-                cost.put("wood", 128);
-                cost.put("stone", 64);
+                cost.put(Resource.COIN, 200);
+                cost.put(Resource.WOOD, 128);
+                cost.put(Resource.STONE, 64);
                 break;
             case 3:
-                cost.put("coin", 400);
-                cost.put("wood", 256);
-                cost.put("stone", 64);
+                cost.put(Resource.COIN, 400);
+                cost.put(Resource.WOOD, 256);
+                cost.put(Resource.STONE, 64);
                 break;
         }
         return cost;

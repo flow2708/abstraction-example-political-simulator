@@ -20,7 +20,7 @@ public class BuildingBase implements Building{
     }
 
     @Override
-    public Map<String, Integer> getUpgradeCost() {
+    public Map<Resource, Integer> getUpgradeCost() {
         return null;
     }
 

@@ -7,21 +7,21 @@ public class BarracksBuilding extends BuildingBase {
         super(type, level, description);
     }
     @Override
-    public Map<String, Integer> getUpgradeCost() {
-        Map<String, Integer> cost = new HashMap<>();
+    public Map<Resource, Integer> getUpgradeCost() {
+        Map<Resource, Integer> cost = new HashMap<>();
 
         switch (level) {
             case 1:
-                cost.put("coin", 200);
-                cost.put("stone", 100);
+                cost.put(Resource.COIN, 200);
+                cost.put(Resource.STONE, 100);
                 break;
             case 2:
-                cost.put("coin", 400);
-                cost.put("stone", 200);
+                cost.put(Resource.COIN, 400);
+                cost.put(Resource.STONE, 200);
                 break;
             case 3:
-                cost.put("coin", 800);
-                cost.put("stone", 400);
+                cost.put(Resource.COIN, 800);
+                cost.put(Resource.STONE, 400);
                 break;
         }
         return cost;

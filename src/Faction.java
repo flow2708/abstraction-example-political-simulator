@@ -5,6 +5,7 @@ public class Faction {
     private final String name;
     private final Set<ChunkClaim> claims = new HashSet<>();
     private final Map<Type, Building> buildings = new HashMap<>(); // Здания по их ID
+    private Storage storage = new Storage();
     private double treasury; // Казна
     private int maxSoldiers = 0; // Макс. размер армии
     private int currentSoldiers; // Текущий размер армии
@@ -45,6 +46,10 @@ public class Faction {
     public String getName() { return name; }
     public Map<Type, Building> getBuildings() {
         return this.buildings;
+    }
+    public Storage getStorage() { return this.storage; }
+    public void printStorage() {
+        this.storage.printResources();
     }
     public double getTreasury() { return treasury; }
     public void setTreasury(double treasury) { this.treasury = treasury; }
