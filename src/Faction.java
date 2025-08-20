@@ -53,7 +53,10 @@ public class Faction {
     }
     public double getTreasury() { return treasury; }
     public void setTreasury(double treasury) { this.treasury = treasury; }
-    public void addTreasury(double treasury) { this.treasury += treasury; }
+    public void addTreasury(double treasury) {
+        this.treasury += treasury;
+        this.storage.addResource(Resource.COIN, treasury);
+    }
     public int getMaxSoldiers() { return maxSoldiers; }
     public void setMaxSoldiers(int maxSoldiers) { this.maxSoldiers = maxSoldiers; }
     public void addMaxSoldiers(int maxSoldiers) { this.maxSoldiers += maxSoldiers; }
