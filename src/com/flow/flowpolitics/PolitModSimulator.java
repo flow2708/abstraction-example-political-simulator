@@ -5,7 +5,7 @@ import com.flow.flowpolitics.buildings.FarmBuilding;
 import com.flow.flowpolitics.buildings.TownHallBuilding;
 
 public class PolitModSimulator {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Faction red = new Faction("red1", "red");
         Faction blue = new Faction("blue1", "blue");
 
@@ -21,6 +21,7 @@ public class PolitModSimulator {
 
 
         for (int i = 1; i <= 10; i++) {
+            Thread.sleep(1000);
             System.out.println("\n>>>> ТИК #" + i);
             red.onTick();
             blue.onTick();

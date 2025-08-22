@@ -2,18 +2,36 @@ package com.flow.flowpolitics.effects;
 
 import com.flow.flowpolitics.Faction;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+
 public class WarriorTrainingEffect implements BuildingEffect{
-    private final int maxUses;
     private final int trainDuration;
-    private final int warriorQuantityPerTrain;
-    public WarriorTrainingEffect(int maxUses, int trainDuration, int warriorQuantityPerTrain) {
-        this.maxUses = maxUses;
+    public WarriorTrainingEffect(int trainDuration) {
         this.trainDuration = trainDuration;
-        this.warriorQuantityPerTrain = warriorQuantityPerTrain;
     }
     @Override
     public void applyEffect(Faction faction) {
+        if (faction.getMaxSoldiers() - faction.getCurrentSoldiers() > faction.getSoldiersQuantityPerTrain()) {
+            ExecutorService executor = Executors.newSingleThreadExecutor();
 
+            executor.submit(() -> {
+                applyEffectSync(faction);
+            });
+
+            // Завершаем executor когда больше не нужен
+            executor.shutdown();
+        }
+    }
+    public void applyEffectSync(Faction faction) {
+            try {
+                // Ожидание 3 секунды
+                Thread.sleep(trainDuration);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+            faction.addCurrentSoldiers(faction.getSoldiersQuantityPerTrain());
     }
 
     @Override
@@ -28,6 +46,6 @@ public class WarriorTrainingEffect implements BuildingEffect{
 
     @Override
     public int getMaxUses() {
-        return maxUses;
+        return 0;
     }
 }

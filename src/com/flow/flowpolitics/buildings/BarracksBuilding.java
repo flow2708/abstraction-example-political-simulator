@@ -3,6 +3,7 @@ package com.flow.flowpolitics.buildings;
 import com.flow.flowpolitics.Faction;
 import com.flow.flowpolitics.Resource;
 import com.flow.flowpolitics.Type;
+import com.flow.flowpolitics.effects.WarriorTrainingEffect;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +12,7 @@ public class BarracksBuilding extends BuildingBase {
 
     public BarracksBuilding(Type type, int level, String description) {
         super(type, level, description);
-
+        this.effects.add(new WarriorTrainingEffect(3000));
     }
     @Override
     public Map<Resource, Integer> getUpgradeCost() {

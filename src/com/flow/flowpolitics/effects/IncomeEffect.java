@@ -6,7 +6,7 @@ import com.flow.flowpolitics.Resource;
 public class IncomeEffect implements BuildingEffect{
     private final Resource resource;
     private final double amount;
-    private final int maxUses;
+    private int maxUses;
     public IncomeEffect(Resource resource, double amount, int maxUses) {
         this.resource = resource;
         this.amount = amount;
@@ -16,6 +16,8 @@ public class IncomeEffect implements BuildingEffect{
     public void applyEffect(Faction faction) {
         if (canUse(maxUses)) {
             faction.getStorage().addResource(resource, amount);
+            maxUses--;
+            applyEffect(faction);
         }
     }
 

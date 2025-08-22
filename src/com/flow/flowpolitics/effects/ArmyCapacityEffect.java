@@ -4,7 +4,7 @@ import com.flow.flowpolitics.Faction;
 
 public class ArmyCapacityEffect implements BuildingEffect {
     private final int capacityIncrease;
-    private final int maxUses;
+    private int maxUses;
     public ArmyCapacityEffect(int capacityIncrease, int maxUses) {
         this.capacityIncrease = capacityIncrease;
         this.maxUses = maxUses;
@@ -14,6 +14,8 @@ public class ArmyCapacityEffect implements BuildingEffect {
     public void applyEffect(Faction faction) {
         if (canUse(maxUses)) {
             faction.addMaxSoldiers(capacityIncrease);
+            maxUses--;
+            applyEffect(faction);
         }
     }
 

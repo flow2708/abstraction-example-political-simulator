@@ -11,14 +11,16 @@ public class Faction {
     private final Map<Type, Building> buildings = new HashMap<>(); // Здания по их ID
     private Storage storage = new Storage();
     private double treasury; // Казна
-    private int maxSoldiers = 0; // Макс. размер армии
+    private int maxSoldiers; // Макс. размер армии
     private int currentSoldiers; // Текущий размер армии
+    private int soldiersQuantityPerTrain = 2;
 
     public Faction(String id, String name) {
         this.id = id;
         this.name = name;
         this.treasury = 100.0; // Стартовый капитал
         this.maxSoldiers = 20;
+        this.currentSoldiers = 0;
     }
 
     public void addClaim(ChunkClaim claim) {
@@ -66,4 +68,6 @@ public class Faction {
     public void addMaxSoldiers(int maxSoldiers) { this.maxSoldiers += maxSoldiers; }
     public int getCurrentSoldiers() { return currentSoldiers; }
     public void setCurrentSoldiers(int currentSoldiers) { this.currentSoldiers = currentSoldiers; }
+    public void addCurrentSoldiers(int soldiers) { this.currentSoldiers = currentSoldiers + soldiers; }
+    public int getSoldiersQuantityPerTrain() { return this.soldiersQuantityPerTrain; }
 }
