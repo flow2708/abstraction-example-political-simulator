@@ -1,5 +1,5 @@
 package com.flow.flowpolitics;
 
 public enum Type {
-    BARRACKS, TOWNHALL;
+    BARRACKS, TOWNHALL, FARM;
 }

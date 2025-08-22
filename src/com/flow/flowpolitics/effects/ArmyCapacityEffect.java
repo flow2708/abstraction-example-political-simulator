@@ -4,13 +4,17 @@ import com.flow.flowpolitics.Faction;
 
 public class ArmyCapacityEffect implements BuildingEffect {
     private final int capacityIncrease;
-    public ArmyCapacityEffect(int capacityIncrease) {
+    private final int maxUses;
+    public ArmyCapacityEffect(int capacityIncrease, int maxUses) {
         this.capacityIncrease = capacityIncrease;
+        this.maxUses = maxUses;
     }
 
     @Override
     public void applyEffect(Faction faction) {
-        faction.addMaxSoldiers(capacityIncrease);
+        if (canUse(maxUses)) {
+            faction.addMaxSoldiers(capacityIncrease);
+        }
     }
 
     @Override
@@ -21,5 +25,10 @@ public class ArmyCapacityEffect implements BuildingEffect {
     @Override
     public String getDescription() {
         return getName() + ": позволяет увеличить максимальную вместимость армии";
+    }
+
+    @Override
+    public int getMaxUses() {
+        return maxUses;
     }
 }
