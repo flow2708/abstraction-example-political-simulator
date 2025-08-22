@@ -1,3 +1,5 @@
+package com.flow.flowpolitics;
+
 public class ChunkClaim {
     private final String worldName;
     private final int x;

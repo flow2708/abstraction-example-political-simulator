@@ -1,3 +1,7 @@
+package com.flow.flowpolitics;
+
+import com.flow.flowpolitics.buildings.Building;
+
 import java.util.*;
 
 public class Faction {

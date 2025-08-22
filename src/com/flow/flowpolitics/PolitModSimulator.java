@@ -1,3 +1,8 @@
+package com.flow.flowpolitics;
+
+import com.flow.flowpolitics.buildings.BarracksBuilding;
+import com.flow.flowpolitics.buildings.TownHallBuilding;
+
 public class PolitModSimulator {
     public static void main(String[] args) {
         Faction red = new Faction("red1", "red");

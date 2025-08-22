@@ -1,3 +1,9 @@
+package com.flow.flowpolitics.buildings;
+
+import com.flow.flowpolitics.Faction;
+import com.flow.flowpolitics.Resource;
+import com.flow.flowpolitics.Type;
+
 import java.util.Map;
 
 public class BuildingBase implements Building{
