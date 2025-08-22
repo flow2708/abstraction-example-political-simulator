@@ -11,6 +11,7 @@ public class BarracksBuilding extends BuildingBase {
 
     public BarracksBuilding(Type type, int level, String description) {
         super(type, level, description);
+
     }
     @Override
     public Map<Resource, Integer> getUpgradeCost() {
