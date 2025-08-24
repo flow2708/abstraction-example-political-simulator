@@ -8,8 +8,10 @@ import java.util.concurrent.Executors;
 
 public class WarriorTrainingEffect implements BuildingEffect{
     private final int trainDuration;
-    public WarriorTrainingEffect(int trainDuration) {
+    private int maxUses;
+    public WarriorTrainingEffect(int trainDuration, int maxUses) {
         this.trainDuration = trainDuration;
+        this.maxUses = maxUses;
     }
     @Override
     public void applyEffect(Faction faction) {
