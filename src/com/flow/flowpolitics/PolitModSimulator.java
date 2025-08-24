@@ -3,6 +3,7 @@ package com.flow.flowpolitics;
 import com.flow.flowpolitics.buildings.BarracksBuilding;
 import com.flow.flowpolitics.buildings.FarmBuilding;
 import com.flow.flowpolitics.buildings.TownHallBuilding;
+import com.flow.flowpolitics.effects.WarriorTrainingEffect;
 
 public class PolitModSimulator {
     public static void main(String[] args) throws InterruptedException {
@@ -27,6 +28,9 @@ public class PolitModSimulator {
             blue.onTick();
             red.printStorage();
             blue.printStorage();
+            /*if (i == 15) {
+                red.getBuildings().get(Type.BARRACKS).addEffect(new WarriorTrainingEffect(Constants.trainDuration_level1, 5));
+            }*/ //для проверки повторного наложения эффекта
         }
     }
 }

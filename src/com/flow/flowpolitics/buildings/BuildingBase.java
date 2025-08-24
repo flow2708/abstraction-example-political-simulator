@@ -40,6 +40,7 @@ public class BuildingBase implements Building{
             effect.applyEffect(faction);
         }
     }
+    @Override
     public void addEffect(BuildingEffect effect) {
         effects.add(effect);
     }

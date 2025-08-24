@@ -15,15 +15,17 @@ public class WarriorTrainingEffect implements BuildingEffect{
     }
     @Override
     public void applyEffect(Faction faction) {
-        if (faction.getMaxSoldiers() - faction.getCurrentSoldiers() > faction.getSoldiersQuantityPerTrain()) {
-            ExecutorService executor = Executors.newSingleThreadExecutor();
+        if (canUse(maxUses)) {
+            if (faction.getMaxSoldiers() - faction.getCurrentSoldiers() > faction.getSoldiersQuantityPerTrain()) {
+                ExecutorService executor = Executors.newSingleThreadExecutor();
 
-            executor.submit(() -> {
-                applyEffectSync(faction);
-            });
+                executor.submit(() -> {
+                    applyEffectSync(faction);
+                });
 
-            // Завершаем executor когда больше не нужен
-            executor.shutdown();
+                // Завершаем executor когда больше не нужен
+                executor.shutdown();
+            }
         }
     }
     public void applyEffectSync(Faction faction) {
@@ -34,6 +36,7 @@ public class WarriorTrainingEffect implements BuildingEffect{
                 Thread.currentThread().interrupt();
             }
             faction.addCurrentSoldiers(faction.getSoldiersQuantityPerTrain());
+            maxUses--;
     }
 
     @Override
