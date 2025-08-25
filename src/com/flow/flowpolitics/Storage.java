@@ -25,6 +25,9 @@ public class Storage {
         }
         return false;
     }
+    public Map<Resource, Double> getResources() {
+        return this.resources;
+    }
     public void printResources() {
         for (Resource res : Resource.values()) {
             System.out.printf("  %s: %.1f%n", res.getName(), getAmount(res));

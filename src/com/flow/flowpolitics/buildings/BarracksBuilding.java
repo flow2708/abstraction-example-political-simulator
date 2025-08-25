@@ -4,9 +4,14 @@ import com.flow.flowpolitics.Constants;
 import com.flow.flowpolitics.Faction;
 import com.flow.flowpolitics.Resource;
 import com.flow.flowpolitics.Type;
+import com.flow.flowpolitics.buildconditions.BuildCondition;
+import com.flow.flowpolitics.buildconditions.BuildingLevelCondition;
+import com.flow.flowpolitics.buildconditions.BuildingQuantityResourcesCondition;
 import com.flow.flowpolitics.effects.WarriorTrainingEffect;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class BarracksBuilding extends BuildingBase {
@@ -34,6 +39,14 @@ public class BarracksBuilding extends BuildingBase {
                 break;
         }
         return cost;
+    }
+    @Override
+    public BuildCondition getBuildingCondition() {
+        Map<Resource, Double> requiredQuantity = new HashMap<>();
+        requiredQuantity.put(Resource.STONE, 40.0);
+        requiredQuantity.put(Resource.COIN, 20.0);
+
+        return new BuildingQuantityResourcesCondition(requiredQuantity);
     }
     @Override
     public void applyEffect(Faction faction) {

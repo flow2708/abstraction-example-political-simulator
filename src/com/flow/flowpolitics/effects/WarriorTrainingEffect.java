@@ -16,7 +16,7 @@ public class WarriorTrainingEffect implements BuildingEffect{
     @Override
     public void applyEffect(Faction faction) {
         if (canUse(maxUses)) {
-            if (faction.getMaxSoldiers() - faction.getCurrentSoldiers() > faction.getSoldiersQuantityPerTrain()) {
+            if (faction.getCurrentSoldiers() + faction.getSoldiersQuantityPerTrain() <= faction.getMaxSoldiers()) {
                 ExecutorService executor = Executors.newSingleThreadExecutor();
 
                 executor.submit(() -> {

@@ -1,5 +1,6 @@
 package com.flow.flowpolitics.buildings;
 
+import com.flow.flowpolitics.Faction;
 import com.flow.flowpolitics.Resource;
 import com.flow.flowpolitics.Type;
 import com.flow.flowpolitics.effects.IncomeEffect;
@@ -11,7 +12,10 @@ public class FarmBuilding extends BuildingBase {
 
     public FarmBuilding(Type type, int level, String description) {
         super(type, level, description);
-        this.effects.add(new IncomeEffect(Resource.FOOD, 5, -1));
+    }
+    @Override
+    public void onTick(Faction faction) {
+        faction.getStorage().addResource(Resource.FOOD, level * 2.0);
     }
     @Override
     public Map<Resource, Integer> getUpgradeCost() {

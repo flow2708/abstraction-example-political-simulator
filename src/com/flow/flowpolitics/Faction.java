@@ -1,5 +1,6 @@
 package com.flow.flowpolitics;
 
+import com.flow.flowpolitics.buildconditions.BuildCondition;
 import com.flow.flowpolitics.buildings.Building;
 
 import java.util.*;
@@ -27,9 +28,22 @@ public class Faction {
         this.claims.add(claim);
         System.out.println("[FACTION] " + name + " заявило права на чанк (" + claim.getX() + ", " + claim.getZ() + ")");
     }
+    public Boolean canBuildBuilding(Building building) {
+        BuildCondition buildCondition = building.getBuildingCondition();
+        if (buildCondition != null) {
+            if (!buildCondition.check(this)) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     // Важный метод! Добавляет здание и сразу применяет его эффект.
     public void addBuilding(Building building) {
+        if (!canBuildBuilding(building)) {
+            System.out.println("Условия постройки не выполнены!");
+            return;
+        }
         buildings.put(building.getType(), building);
         building.applyEffect(this);
         System.out.println("[FACTION] " + name + " построило: " + building.getType() + " (Ур. " + building.getLevel() + ")");
@@ -43,7 +57,6 @@ public class Faction {
         }
         printStatus();
     }
-
     public void printStatus() {
         System.out.printf("Казна: %.2f монет | Армия: %d/%d%n", treasury, currentSoldiers, maxSoldiers);
     }

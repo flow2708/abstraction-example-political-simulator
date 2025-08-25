@@ -8,9 +8,9 @@ public interface BuildingEffect {
         if (maxUses > 0) {
             return true;
         }
-        if (maxUses == -1) {
+        /*if (maxUses == -1) {
             return true;
-        }
+        }*/
         return false;
     }
     String getName();
