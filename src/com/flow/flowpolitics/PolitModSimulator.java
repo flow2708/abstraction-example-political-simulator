@@ -21,7 +21,7 @@ public class PolitModSimulator {
         blue.addClaim(new ChunkClaim("world1", 450, 326, blue, true));
 
         // Проверяем условия постройки
-        Building redBarracks = new BarracksBuilding(Type.BARRACKS, 1, "simple barracks");
+        Building redBarracks = new BarracksBuilding("barracks", Type.BARRACKS, "Barracks", 1, "simple barracks");
         if (red.canBuildBuilding(redBarracks)) {
             red.addBuilding(redBarracks);
             System.out.println("Красные построили казармы!");
@@ -29,13 +29,13 @@ public class PolitModSimulator {
             System.out.println("Красные не могут построить казармы: недостаточно ресурсов");
         }
 
-        Building blueTownHall = new TownHallBuilding(Type.TOWNHALL, 1, "simple townhall");
+        Building blueTownHall = new TownHallBuilding("townhall", Type.TOWNHALL, "Townhall", 1, "simple townhall");
         if (blue.canBuildBuilding(blueTownHall)) {
             blue.addBuilding(blueTownHall);
             System.out.println("Синие построили ратушу!");
         }
 
-        Building blueFarm = new FarmBuilding(Type.FARM, 1, "simple farm");
+        Building blueFarm = new FarmBuilding("farm", Type.FARM, "Farm", 1, "simple farm");
         if (blue.canBuildBuilding(blueFarm)) {
             blue.addBuilding(blueFarm);
             System.out.println("Синие построили ферму!");

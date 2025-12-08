@@ -5,9 +5,10 @@ import com.flow.flowpolitics.Resource;
 import com.flow.flowpolitics.Type;
 
 public class MilitaryFactoryBuilding extends BuildingBase{
-    public MilitaryFactoryBuilding(Type type, int level, String description) {
-        super(type, level, description);
+    public MilitaryFactoryBuilding(String id, Type type, String name, int level, String description) {
+        super(id, type, name, level, description);
     }
+
     @Override
     public void onTick(Faction faction) {
         if (level > 1) {

@@ -16,8 +16,8 @@ import java.util.Map;
 
 public class BarracksBuilding extends BuildingBase {
 
-    public BarracksBuilding(Type type, int level, String description) {
-        super(type, level, description);
+    public BarracksBuilding(String id, Type type, String name, int level, String description) {
+        super(id, type, name, level, description);
         this.effects.add(new WarriorTrainingEffect(Constants.trainDuration_level1, 5));
     }
     @Override

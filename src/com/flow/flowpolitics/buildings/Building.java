@@ -11,8 +11,11 @@ import java.util.List;
 import java.util.Map;
 
 public interface Building {
+    String getId();
     Type getType();
+    String getName();
     int getLevel();
+    String getDescription();
     Map<Resource, Integer> getUpgradeCost();
     void onTick(Faction faction);
     default BuildCondition getBuildingCondition() {
@@ -20,7 +23,6 @@ public interface Building {
     }
 
     void addEffect(BuildingEffect effect);
-
-    String getDescription();
+    void removeEffect(BuildingEffect effect);
     void applyEffect(Faction faction);
 }

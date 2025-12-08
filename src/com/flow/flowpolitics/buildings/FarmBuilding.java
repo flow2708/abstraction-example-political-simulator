@@ -9,10 +9,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FarmBuilding extends BuildingBase {
-
-    public FarmBuilding(Type type, int level, String description) {
-        super(type, level, description);
+    public FarmBuilding(String id, Type type, String name, int level, String description) {
+        super(id, type, name, level, description);
     }
+
     @Override
     public void onTick(Faction faction) {
         faction.getStorage().addResource(Resource.FOOD, level * 2.0);

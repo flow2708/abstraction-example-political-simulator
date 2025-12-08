@@ -8,9 +8,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TownHallBuilding extends BuildingBase{
-    public TownHallBuilding(Type type, int level, String description) {
-        super(type, level, description);
+    public TownHallBuilding(String id, Type type, String name, int level, String description) {
+        super(id, type, name, level, description);
     }
+
     @Override
     public void onTick(Faction faction) {
             faction.addTreasury(10.0 * this.level);

@@ -10,18 +10,33 @@ import java.util.List;
 import java.util.Map;
 
 public class BuildingBase implements Building{
+    protected final String id;
     protected final Type type;
+    protected String name;
     protected int level;
     protected String description;
     protected List<BuildingEffect> effects = new ArrayList<>();
-    public BuildingBase(Type type, int level, String description) {
+    public BuildingBase(String id,Type type,String name, int level, String description) {
+        this.id = id;
         this.type = type;
+        this.name = name;
         this.level = level;
         this.description = description;
     }
+
+    @Override
+    public String getId() {
+        return id;
+    }
+
     @Override
     public Type getType() {
         return type;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
     @Override
@@ -43,6 +58,11 @@ public class BuildingBase implements Building{
     @Override
     public void addEffect(BuildingEffect effect) {
         effects.add(effect);
+    }
+
+    @Override
+    public void removeEffect(BuildingEffect effect) {
+        effects.remove(effect);
     }
 
     @Override
