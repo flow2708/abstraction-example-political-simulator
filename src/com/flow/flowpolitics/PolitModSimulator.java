@@ -8,8 +8,8 @@ import com.flow.flowpolitics.effects.WarriorTrainingEffect;
 
 public class PolitModSimulator {
     public static void main(String[] args) throws InterruptedException {
-        Faction red = new Faction("red1", "red");
-        Faction blue = new Faction("blue1", "blue");
+        Faction red = new Faction("red1", 100.0, 20, 0);
+        Faction blue = new Faction("blue1", 100.0, 20, 0);
 
         // Добавляем начальные ресурсы
         red.getStorage().addResource(Resource.STONE, 100.0);
@@ -22,22 +22,22 @@ public class PolitModSimulator {
 
         // Проверяем условия постройки
         Building redBarracks = new BarracksBuilding("barracks", Type.BARRACKS, "Barracks", 1, "simple barracks");
-        if (red.canBuildBuilding(redBarracks)) {
-            red.addBuilding(redBarracks);
+        if (red.canBuildBuilding(redBarracks, red)) {
+            red.addBuilding(redBarracks, red);
             System.out.println("Красные построили казармы!");
         } else {
             System.out.println("Красные не могут построить казармы: недостаточно ресурсов");
         }
 
         Building blueTownHall = new TownHallBuilding("townhall", Type.TOWNHALL, "Townhall", 1, "simple townhall");
-        if (blue.canBuildBuilding(blueTownHall)) {
-            blue.addBuilding(blueTownHall);
+        if (blue.canBuildBuilding(blueTownHall, blue)) {
+            blue.addBuilding(blueTownHall, blue);
             System.out.println("Синие построили ратушу!");
         }
 
         Building blueFarm = new FarmBuilding("farm", Type.FARM, "Farm", 1, "simple farm");
-        if (blue.canBuildBuilding(blueFarm)) {
-            blue.addBuilding(blueFarm);
+        if (blue.canBuildBuilding(blueFarm, blue)) {
+            blue.addBuilding(blueFarm, blue);
             System.out.println("Синие построили ферму!");
         }
 
@@ -45,12 +45,12 @@ public class PolitModSimulator {
             Thread.sleep(1000);
             System.out.println("\n>>>> ТИК #" + i);
 
-            red.onTick();
+            red.onTick(red);
             System.out.println("=== КРАСНЫЕ ===");
             red.printStatus();
             red.printStorage();
 
-            blue.onTick();
+            blue.onTick(blue);
             System.out.println("=== СИНИЕ ===");
             blue.printStatus();
             blue.printStorage();
