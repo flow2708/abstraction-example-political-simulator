@@ -1,16 +1,12 @@
 package com.flow.flowpolitics.buildings;
 
-import com.flow.flowpolitics.Constants;
 import com.flow.flowpolitics.Faction;
 import com.flow.flowpolitics.Resource;
 import com.flow.flowpolitics.Type;
 import com.flow.flowpolitics.buildconditions.BuildCondition;
-import com.flow.flowpolitics.buildconditions.BuildingLevelCondition;
 import com.flow.flowpolitics.buildconditions.BuildingQuantityResourcesCondition;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class BarracksBuilding extends BuildingBase {
@@ -24,8 +20,9 @@ public class BarracksBuilding extends BuildingBase {
         int quantityPerTick = soldiersQuantityPerTick;
         if (faction.getCurrentSoldiers() + quantityPerTick <= faction.getMaxSoldiers()) {
             faction.addSoldiers(quantityPerTick);
+        } else {
+            System.out.println("Достигнуто максимальное количество солдат!");
         }
-        System.out.println("Достигнуто максимальное количество солдат!");
     }
     @Override
     public Map<Resource, Integer> getUpgradeCost() {
@@ -46,6 +43,10 @@ public class BarracksBuilding extends BuildingBase {
                 break;
         }
         return cost;
+    }
+    @Override
+    public void applyEffect(Faction faction) {
+        faction.addMaxSoldiers(50 * level);
     }
     @Override
     public BuildCondition getBuildingCondition() {

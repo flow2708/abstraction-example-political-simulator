@@ -50,25 +50,8 @@ public class BuildingBase implements Building{
 
     @Override
     public void onTick(Faction faction) {
-        /*
-        for (BuildingEffect effect : effects) {
-            effect.applyEffect(faction);
-        }
 
-         */
     }
-    /*
-    @Override
-    public void addEffect(BuildingEffect effect) {
-        effects.add(effect);
-    }
-    */
-    /*
-    @Override
-    public void removeEffect(BuildingEffect effect) {
-        effects.remove(effect);
-    }
-     */
     @Override
     public String getDescription() {
         return description;

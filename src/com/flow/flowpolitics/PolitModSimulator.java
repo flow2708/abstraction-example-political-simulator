@@ -29,7 +29,7 @@ public class PolitModSimulator {
         Building blueFarm = new FarmBuilding("farm", Type.FARM, "Farm", 1, "simple farm");
         blue.addBuilding(blueFarm, blue);
 
-        for (int i = 1; i <= 20; i++) {
+        for (int i = 1; i <= 200; i++) {
             Thread.sleep(1000);
             System.out.println("\n>>>> ТИК #" + i);
 
