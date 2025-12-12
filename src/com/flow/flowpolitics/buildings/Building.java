@@ -4,7 +4,6 @@ import com.flow.flowpolitics.Faction;
 import com.flow.flowpolitics.Resource;
 import com.flow.flowpolitics.Type;
 import com.flow.flowpolitics.buildconditions.BuildCondition;
-import com.flow.flowpolitics.effects.BuildingEffect;
 
 import java.util.Collections;
 import java.util.List;
@@ -21,8 +20,9 @@ public interface Building {
     default BuildCondition getBuildingCondition() {
         return null;
     }
-
-    void addEffect(BuildingEffect effect);
-    void removeEffect(BuildingEffect effect);
+    /**
+     * Вызов метода происходит при постройке (addBuilding())
+     * @param faction
+     */
     void applyEffect(Faction faction);
 }

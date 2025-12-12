@@ -7,7 +7,6 @@ import com.flow.flowpolitics.Type;
 import com.flow.flowpolitics.buildconditions.BuildCondition;
 import com.flow.flowpolitics.buildconditions.BuildingLevelCondition;
 import com.flow.flowpolitics.buildconditions.BuildingQuantityResourcesCondition;
-import com.flow.flowpolitics.effects.WarriorTrainingEffect;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,10 +14,18 @@ import java.util.List;
 import java.util.Map;
 
 public class BarracksBuilding extends BuildingBase {
+    private int soldiersQuantityPerTick = level;
 
     public BarracksBuilding(String id, Type type, String name, int level, String description) {
         super(id, type, name, level, description);
-        this.effects.add(new WarriorTrainingEffect(Constants.trainDuration_level1, 5));
+    }
+    @Override
+    public void onTick(Faction faction) {
+        int quantityPerTick = soldiersQuantityPerTick;
+        if (faction.getCurrentSoldiers() + quantityPerTick <= faction.getMaxSoldiers()) {
+            faction.addSoldiers(quantityPerTick);
+        }
+        System.out.println("Достигнуто максимальное количество солдат!");
     }
     @Override
     public Map<Resource, Integer> getUpgradeCost() {
@@ -47,22 +54,5 @@ public class BarracksBuilding extends BuildingBase {
         requiredQuantity.put(Resource.COIN, 20.0);
 
         return new BuildingQuantityResourcesCondition(requiredQuantity);
-    }
-    @Override
-    public void applyEffect(Faction faction) {
-        int barracksQuantity = 0;
-
-        for (Building building : faction.getBuildings().values()) {
-            if (building instanceof BarracksBuilding) {
-                barracksQuantity++;
-            }
-        }
-        if (barracksQuantity == 0) {
-            faction.setMaxSoldiers(20 + (5 * level));
-        } else if (barracksQuantity > 0 && barracksQuantity <= 5) {
-            faction.addMaxSoldiers(5 * level);
-        } else if (barracksQuantity > 5 || barracksQuantity <= 10) {
-            faction.addMaxSoldiers(2 * level);
-        }
     }
 }

@@ -4,7 +4,6 @@ import com.flow.flowpolitics.buildings.BarracksBuilding;
 import com.flow.flowpolitics.buildings.Building;
 import com.flow.flowpolitics.buildings.FarmBuilding;
 import com.flow.flowpolitics.buildings.TownHallBuilding;
-import com.flow.flowpolitics.effects.WarriorTrainingEffect;
 
 public class PolitModSimulator {
     public static void main(String[] args) throws InterruptedException {
@@ -22,24 +21,13 @@ public class PolitModSimulator {
 
         // Проверяем условия постройки
         Building redBarracks = new BarracksBuilding("barracks", Type.BARRACKS, "Barracks", 1, "simple barracks");
-        if (red.canBuildBuilding(redBarracks, red)) {
-            red.addBuilding(redBarracks, red);
-            System.out.println("Красные построили казармы!");
-        } else {
-            System.out.println("Красные не могут построить казармы: недостаточно ресурсов");
-        }
+        red.addBuilding(redBarracks, red);
 
         Building blueTownHall = new TownHallBuilding("townhall", Type.TOWNHALL, "Townhall", 1, "simple townhall");
-        if (blue.canBuildBuilding(blueTownHall, blue)) {
-            blue.addBuilding(blueTownHall, blue);
-            System.out.println("Синие построили ратушу!");
-        }
+        blue.addBuilding(blueTownHall, blue);
 
         Building blueFarm = new FarmBuilding("farm", Type.FARM, "Farm", 1, "simple farm");
-        if (blue.canBuildBuilding(blueFarm, blue)) {
-            blue.addBuilding(blueFarm, blue);
-            System.out.println("Синие построили ферму!");
-        }
+        blue.addBuilding(blueFarm, blue);
 
         for (int i = 1; i <= 20; i++) {
             Thread.sleep(1000);
@@ -54,16 +42,6 @@ public class PolitModSimulator {
             System.out.println("=== СИНИЕ ===");
             blue.printStatus();
             blue.printStorage();
-
-            if (i == 5) {
-                Building barracks = red.getBuildings().get(Type.BARRACKS);
-                if (barracks != null) {
-                    barracks.addEffect(new WarriorTrainingEffect(3, 2)); // 3 солдата, 2 использования
-                    System.out.println("Добавлен эффект тренировки в казармы красных!");
-                } else {
-                    System.out.println("Казармы красных не построены, эффект не добавлен");
-                }
-            }
         }
     }
 }

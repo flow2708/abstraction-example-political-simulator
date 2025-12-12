@@ -6,28 +6,9 @@ import com.flow.flowpolitics.buildings.Building;
 import java.util.*;
 
 public class Faction extends PolitStructure{
-    /*
-    private final String id;
-    private final String name;
-    private final Set<ChunkClaim> claims = new HashSet<>();
-    private final Map<Type, Building> buildings = new HashMap<>(); // Здания по их ID
-    private Storage storage = new Storage();
-    private double treasury; // Казна
-    private int maxSoldiers; // Макс. размер армии
-    private int currentSoldiers; // Текущий размер армии
-    private int soldiersQuantityPerTrain = 2;
-     */
-
-
     public Faction(String name, double treasury, int maxSoldiers, int currentSoldiers) {
         super(name, treasury, maxSoldiers, currentSoldiers);
-        /*
-        this.id = id;
-        this.name = name;
-        this.treasury = 100.0; // Стартовый капитал
-        this.maxSoldiers = 20;
-        this.currentSoldiers = 0;
-         */
+
     }
 
     /*public void addClaim(ChunkClaim claim) {

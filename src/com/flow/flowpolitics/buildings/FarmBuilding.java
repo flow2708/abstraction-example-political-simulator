@@ -3,7 +3,6 @@ package com.flow.flowpolitics.buildings;
 import com.flow.flowpolitics.Faction;
 import com.flow.flowpolitics.Resource;
 import com.flow.flowpolitics.Type;
-import com.flow.flowpolitics.effects.IncomeEffect;
 
 import java.util.HashMap;
 import java.util.Map;

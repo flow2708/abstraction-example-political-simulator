@@ -11,6 +11,8 @@ public interface Structure {
     void onTick(Faction faction);
     void printStatus();
     String getName();
+    String getId();
+
     Map<Type, Building> getBuildings();
     Storage getStorage();
     void printStorage();
@@ -21,7 +23,6 @@ public interface Structure {
     void setMaxSoldiers(int maxSoldiers);
     void addMaxSoldiers(int maxSoldiers);
     int getCurrentSoldiers();
-    void setCurrentSoldiers(int currentSoldiers);
-    void addCurrentSoldiers(int soldiers);
-    int getSoldiersQuantityPerTrain();
+    void setSoldiers(int currentSoldiers);
+    void addSoldiers(int soldiers);
 }

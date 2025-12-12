@@ -1,7 +1,7 @@
 package com.flow.flowpolitics;
 
 import com.flow.flowpolitics.buildconditions.BuildCondition;
-import com.flow.flowpolitics.buildings.Building;
+import com.flow.flowpolitics.buildings.*;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -17,7 +17,6 @@ public abstract class PolitStructure implements Structure {
     private double treasury; // Казна
     private int maxSoldiers; // Макс. размер армии
     private int currentSoldiers; // Текущий размер армии
-    private int soldiersQuantityPerTrain = 2;
 
     protected PolitStructure(String name, double treasury, int maxSoldiers, int currentSoldiers) {
         this.name = name;
@@ -56,30 +55,44 @@ public abstract class PolitStructure implements Structure {
         for (Building building : buildings.values()) {
             building.onTick(faction); // Каждое здание влияет на государство
         }
-        printStatus();
     }
+    @Override
     public void printStatus() {
         System.out.printf("Казна: %.2f монет | Армия: %d/%d%n", treasury, currentSoldiers, maxSoldiers);
     }
+    @Override
     public String getName() { return this.name; }
+    @Override
+    public String getId() { return this.id; }
+    @Override
     public Map<Type, Building> getBuildings() {
         return this.buildings;
     }
+    @Override
     public Storage getStorage() { return this.storage; }
+    @Override
     public void printStorage() {
         this.storage.printResources();
     }
+    @Override
     public double getTreasury() { return this.treasury; }
+    @Override
     public void setTreasury(double treasury) { this.treasury = treasury; }
+    @Override
     public void addTreasury(double treasury) {
         this.treasury += treasury;
         this.storage.addResource(Resource.COIN, treasury);
     }
+    @Override
     public int getMaxSoldiers() { return this.maxSoldiers; }
+    @Override
     public void setMaxSoldiers(int maxSoldiers) { this.maxSoldiers = maxSoldiers; }
+    @Override
     public void addMaxSoldiers(int maxSoldiers) { this.maxSoldiers += maxSoldiers; }
+    @Override
     public int getCurrentSoldiers() { return this.currentSoldiers; }
-    public void setCurrentSoldiers(int currentSoldiers) { this.currentSoldiers = currentSoldiers; }
-    public void addCurrentSoldiers(int soldiers) { this.currentSoldiers = currentSoldiers + soldiers; }
-    public int getSoldiersQuantityPerTrain() { return this.soldiersQuantityPerTrain; }
+    @Override
+    public void setSoldiers(int currentSoldiers) { this.currentSoldiers = currentSoldiers; }
+    @Override
+    public void addSoldiers(int soldiers) { this.currentSoldiers += soldiers; }
 }
