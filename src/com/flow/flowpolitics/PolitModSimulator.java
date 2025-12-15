@@ -1,7 +1,7 @@
 package com.flow.flowpolitics;
 
 import com.flow.flowpolitics.buildings.BarracksBuilding;
-import com.flow.flowpolitics.buildings.Building;
+import com.flow.flowpolitics.interfaces.Building;
 import com.flow.flowpolitics.buildings.FarmBuilding;
 import com.flow.flowpolitics.buildings.TownHallBuilding;
 

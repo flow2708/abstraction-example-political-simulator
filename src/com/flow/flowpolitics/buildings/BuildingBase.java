@@ -3,12 +3,11 @@ package com.flow.flowpolitics.buildings;
 import com.flow.flowpolitics.Faction;
 import com.flow.flowpolitics.Resource;
 import com.flow.flowpolitics.Type;
+import com.flow.flowpolitics.interfaces.Building;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
-public class BuildingBase implements Building{
+public class BuildingBase implements Building {
     protected final String id;
     protected final Type type;
     protected String name;

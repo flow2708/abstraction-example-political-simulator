@@ -2,7 +2,8 @@ package com.flow.flowpolitics.buildconditions;
 
 import com.flow.flowpolitics.Faction;
 import com.flow.flowpolitics.Type;
-import com.flow.flowpolitics.buildings.Building;
+import com.flow.flowpolitics.interfaces.BuildCondition;
+import com.flow.flowpolitics.interfaces.Building;
 
 public class BuildingLevelCondition implements BuildCondition {
     private Type requiredBuilding;

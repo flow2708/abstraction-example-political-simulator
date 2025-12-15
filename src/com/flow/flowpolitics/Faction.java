@@ -1,10 +1,5 @@
 package com.flow.flowpolitics;
 
-import com.flow.flowpolitics.buildconditions.BuildCondition;
-import com.flow.flowpolitics.buildings.Building;
-
-import java.util.*;
-
 public class Faction extends PolitStructure{
     public Faction(String name, double treasury, int maxSoldiers, int currentSoldiers) {
         super(name, treasury, maxSoldiers, currentSoldiers);

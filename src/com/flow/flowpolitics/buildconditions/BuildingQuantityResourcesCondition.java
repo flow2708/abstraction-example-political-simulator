@@ -2,6 +2,7 @@ package com.flow.flowpolitics.buildconditions;
 
 import com.flow.flowpolitics.Faction;
 import com.flow.flowpolitics.Resource;
+import com.flow.flowpolitics.interfaces.BuildCondition;
 
 import java.util.Map;
 

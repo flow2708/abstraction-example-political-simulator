@@ -1,7 +1,8 @@
 package com.flow.flowpolitics;
 
-import com.flow.flowpolitics.buildconditions.BuildCondition;
-import com.flow.flowpolitics.buildings.*;
+import com.flow.flowpolitics.interfaces.BuildCondition;
+import com.flow.flowpolitics.interfaces.Building;
+import com.flow.flowpolitics.interfaces.Structure;
 
 import java.util.HashMap;
 import java.util.HashSet;

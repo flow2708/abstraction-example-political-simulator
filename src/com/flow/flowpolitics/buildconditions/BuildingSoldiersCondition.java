@@ -1,8 +1,9 @@
 package com.flow.flowpolitics.buildconditions;
 
 import com.flow.flowpolitics.Faction;
+import com.flow.flowpolitics.interfaces.BuildCondition;
 
-public class BuildingSoldiersCondition implements BuildCondition{
+public class BuildingSoldiersCondition implements BuildCondition {
     private int requiredSoldiers;
     public BuildingSoldiersCondition(int requiredSoldiers) {
         this.requiredSoldiers = requiredSoldiers;

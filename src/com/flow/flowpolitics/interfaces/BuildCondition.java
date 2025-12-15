@@ -1,4 +1,4 @@
-package com.flow.flowpolitics.buildconditions;
+package com.flow.flowpolitics.interfaces;
 
 import com.flow.flowpolitics.Faction;
 

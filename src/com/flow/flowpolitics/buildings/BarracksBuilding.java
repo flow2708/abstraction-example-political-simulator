@@ -3,7 +3,7 @@ package com.flow.flowpolitics.buildings;
 import com.flow.flowpolitics.Faction;
 import com.flow.flowpolitics.Resource;
 import com.flow.flowpolitics.Type;
-import com.flow.flowpolitics.buildconditions.BuildCondition;
+import com.flow.flowpolitics.interfaces.BuildCondition;
 import com.flow.flowpolitics.buildconditions.BuildingQuantityResourcesCondition;
 
 import java.util.HashMap;
