@@ -4,10 +4,7 @@ import com.flow.flowpolitics.interfaces.BuildCondition;
 import com.flow.flowpolitics.interfaces.Building;
 import com.flow.flowpolitics.interfaces.Structure;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public abstract class PolitStructure implements Structure {
     private final String id = String.valueOf(this.hashCode());
