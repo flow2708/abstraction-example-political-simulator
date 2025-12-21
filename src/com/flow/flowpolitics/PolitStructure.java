@@ -5,6 +5,7 @@ import com.flow.flowpolitics.enums.Type;
 import com.flow.flowpolitics.interfaces.BuildCondition;
 import com.flow.flowpolitics.interfaces.Building;
 import com.flow.flowpolitics.interfaces.Structure;
+import com.flow.flowpolitics.war.War;
 
 import java.util.*;
 

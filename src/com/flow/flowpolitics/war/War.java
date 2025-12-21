@@ -1,0 +1,28 @@
+package com.flow.flowpolitics.war;
+
+import com.flow.flowpolitics.PolitStructure;
+import com.flow.flowpolitics.enums.WarStatus;
+import com.flow.flowpolitics.enums.WarType;
+
+import java.util.*;
+
+public class War {
+    private final String id;
+    private final WarType warType;
+    private WarStatus warStatus;
+    private final PolitStructure aggressor;
+    private final PolitStructure defender;
+    private List<Battle> battles;
+    private Map<PolitStructure, WarStats> statistics;
+    public War(WarType warType, WarStatus warStatus, PolitStructure aggressor, PolitStructure defender) {
+        this.id = "war_" + UUID.randomUUID().toString().substring(0, 8);
+        this.warType = warType;
+        this.warStatus = warStatus;
+        this.aggressor = aggressor;
+        this.defender = defender;
+        this.battles = new ArrayList<>();
+        this.statistics = new HashMap<>();
+        this.statistics.put(aggressor, new WarStats(0, 0, 0));
+        this.statistics.put(defender, new WarStats(0, 0, 0));
+    }
+}
