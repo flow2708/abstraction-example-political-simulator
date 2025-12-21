@@ -1,5 +1,7 @@
 package com.flow.flowpolitics;
 
+import com.flow.flowpolitics.enums.Resource;
+
 import java.util.HashMap;
 import java.util.Map;
 

@@ -1,8 +1,8 @@
 package com.flow.flowpolitics.buildings;
 
 import com.flow.flowpolitics.Faction;
-import com.flow.flowpolitics.Resource;
-import com.flow.flowpolitics.Type;
+import com.flow.flowpolitics.enums.Resource;
+import com.flow.flowpolitics.enums.Type;
 
 public class MilitaryFactoryBuilding extends BuildingBase{
     public MilitaryFactoryBuilding(String id, Type type, String name, int level, String description) {

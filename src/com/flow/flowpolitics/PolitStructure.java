@@ -1,5 +1,7 @@
 package com.flow.flowpolitics;
 
+import com.flow.flowpolitics.enums.Resource;
+import com.flow.flowpolitics.enums.Type;
 import com.flow.flowpolitics.interfaces.BuildCondition;
 import com.flow.flowpolitics.interfaces.Building;
 import com.flow.flowpolitics.interfaces.Structure;
@@ -12,15 +14,17 @@ public abstract class PolitStructure implements Structure {
     private final Set<ChunkClaim> claims = new HashSet<>();
     private final Map<Type, Building> buildings = new HashMap<>(); // Здания по их ID
     private Storage storage = new Storage();
+    War war;
     private double treasury; // Казна
     private int maxSoldiers; // Макс. размер армии
     private int currentSoldiers; // Текущий размер армии
 
-    protected PolitStructure(String name, double treasury, int maxSoldiers, int currentSoldiers) {
+    protected PolitStructure(String name, double treasury, int maxSoldiers, int currentSoldiers, War war) {
         this.name = name;
         this.treasury = treasury;
         this.maxSoldiers = maxSoldiers;
         this.currentSoldiers = currentSoldiers;
+        this.war = war;
     }
     @Override
     public void addClaim(ChunkClaim claim) {

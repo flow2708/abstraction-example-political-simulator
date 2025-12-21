@@ -1,4 +1,4 @@
-package com.flow.flowpolitics;
+package com.flow.flowpolitics.enums;
 
 public enum Resource {
     COIN("Монета"),

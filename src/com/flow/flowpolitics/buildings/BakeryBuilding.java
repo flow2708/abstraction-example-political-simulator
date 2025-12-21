@@ -1,8 +1,8 @@
 package com.flow.flowpolitics.buildings;
 
 import com.flow.flowpolitics.Faction;
-import com.flow.flowpolitics.Resource;
-import com.flow.flowpolitics.Type;
+import com.flow.flowpolitics.enums.Resource;
+import com.flow.flowpolitics.enums.Type;
 
 public class BakeryBuilding extends BuildingBase {
 
