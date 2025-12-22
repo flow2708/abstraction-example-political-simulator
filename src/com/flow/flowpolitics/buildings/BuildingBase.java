@@ -6,16 +6,17 @@ import com.flow.flowpolitics.enums.Type;
 import com.flow.flowpolitics.interfaces.Building;
 
 import java.util.Map;
+import java.util.UUID;
 
 public class BuildingBase implements Building {
-    protected final String id;
-    protected final Type type;
-    protected String name;
+    private final String id;
+    private final Type type;
+    private String name;
     protected int level;
     protected String description;
     //protected List<BuildingEffect> effects = new ArrayList<>();
-    public BuildingBase(String id,Type type,String name, int level, String description) {
-        this.id = id;
+    public BuildingBase(Type type,String name, int level, String description) {
+        this.id = "building_" + UUID.randomUUID().toString().substring(0, 8);
         this.type = type;
         this.name = name;
         this.level = level;

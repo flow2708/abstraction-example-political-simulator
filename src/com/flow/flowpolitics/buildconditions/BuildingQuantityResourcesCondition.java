@@ -5,10 +5,13 @@ import com.flow.flowpolitics.enums.Resource;
 import com.flow.flowpolitics.interfaces.BuildCondition;
 
 import java.util.Map;
+import java.util.UUID;
 
 public class BuildingQuantityResourcesCondition implements BuildCondition {
+    String id;
     private Map<Resource, Double> requiredQuantity;
     public BuildingQuantityResourcesCondition(Map<Resource, Double> requiredQuantity) {
+        this.id = "building_quantity_resources_condition_" + UUID.randomUUID().toString().substring(0, 8);
         this.requiredQuantity = requiredQuantity;
     }
     @Override

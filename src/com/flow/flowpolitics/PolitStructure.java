@@ -10,7 +10,7 @@ import com.flow.flowpolitics.war.War;
 import java.util.*;
 
 public abstract class PolitStructure implements Structure {
-    private final String id = String.valueOf(this.hashCode());
+    private final String id;
     private final String name;
     private final Set<ChunkClaim> claims = new HashSet<>();
     private final Map<Type, Building> buildings = new HashMap<>(); // Здания по их ID
@@ -20,7 +20,8 @@ public abstract class PolitStructure implements Structure {
     private int maxSoldiers; // Макс. размер армии
     private int currentSoldiers; // Текущий размер армии
 
-    protected PolitStructure(String name, double treasury, int maxSoldiers, int currentSoldiers, War war) {
+    protected PolitStructure(String id, String name, double treasury, int maxSoldiers, int currentSoldiers, War war) {
+        this.id = "polit_structure_" + UUID.randomUUID().toString().substring(0, 8);
         this.name = name;
         this.treasury = treasury;
         this.maxSoldiers = maxSoldiers;
