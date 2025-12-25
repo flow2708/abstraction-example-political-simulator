@@ -99,4 +99,11 @@ public abstract class PolitStructure implements Structure {
     public void setSoldiers(int currentSoldiers) { this.currentSoldiers = currentSoldiers; }
     @Override
     public void addSoldiers(int soldiers) { this.currentSoldiers += soldiers; }
+    public War getWar() {
+        return war;
+    }
+
+    public void setWar(War war) {
+        this.war = war;
+    }
 }
