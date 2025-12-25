@@ -9,8 +9,8 @@ import com.flow.flowpolitics.buildings.TownHallBuilding;
 
 public class PolitModSimulator {
     public static void main(String[] args) throws InterruptedException {
-        Faction red = new Faction("red1", 100.0, 20, 0);
-        Faction blue = new Faction("blue1", 100.0, 20, 0);
+        Faction red = new Faction("red1", 100.0, 20, 0, null);
+        Faction blue = new Faction("blue1", 100.0, 20, 0, null);
 
         // Добавляем начальные ресурсы
         red.getStorage().addResource(Resource.STONE, 100.0);
@@ -22,13 +22,13 @@ public class PolitModSimulator {
         blue.addClaim(new ChunkClaim("world1", 450, 326, blue, true));
 
         // Проверяем условия постройки
-        Building redBarracks = new BarracksBuilding("barracks", Type.BARRACKS, "Barracks", 1, "simple barracks");
+        Building redBarracks = new BarracksBuilding(Type.BARRACKS, "Barracks", 1, "simple barracks");
         red.addBuilding(redBarracks, red);
 
-        Building blueTownHall = new TownHallBuilding("townhall", Type.TOWNHALL, "Townhall", 1, "simple townhall");
+        Building blueTownHall = new TownHallBuilding(Type.TOWNHALL, "Townhall", 1, "simple townhall");
         blue.addBuilding(blueTownHall, blue);
 
-        Building blueFarm = new FarmBuilding("farm", Type.FARM, "Farm", 1, "simple farm");
+        Building blueFarm = new FarmBuilding(Type.FARM, "Farm", 1, "simple farm");
         blue.addBuilding(blueFarm, blue);
 
         for (int i = 1; i <= 200; i++) {

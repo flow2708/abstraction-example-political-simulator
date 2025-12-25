@@ -20,7 +20,7 @@ public abstract class PolitStructure implements Structure {
     private int maxSoldiers; // Макс. размер армии
     private int currentSoldiers; // Текущий размер армии
 
-    protected PolitStructure(String id, String name, double treasury, int maxSoldiers, int currentSoldiers, War war) {
+    protected PolitStructure(String name, double treasury, int maxSoldiers, int currentSoldiers, War war) {
         this.id = "polit_structure_" + UUID.randomUUID().toString().substring(0, 8);
         this.name = name;
         this.treasury = treasury;

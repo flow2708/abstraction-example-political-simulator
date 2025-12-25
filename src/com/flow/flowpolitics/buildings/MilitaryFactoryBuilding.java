@@ -5,8 +5,8 @@ import com.flow.flowpolitics.enums.Resource;
 import com.flow.flowpolitics.enums.Type;
 
 public class MilitaryFactoryBuilding extends BuildingBase{
-    public MilitaryFactoryBuilding(String id, Type type, String name, int level, String description) {
-        super(id, type, name, level, description);
+    public MilitaryFactoryBuilding(Type type, String name, int level, String description) {
+        super(type, name, level, description);
     }
 
     @Override

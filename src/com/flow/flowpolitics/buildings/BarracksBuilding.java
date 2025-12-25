@@ -12,8 +12,8 @@ import java.util.Map;
 public class BarracksBuilding extends BuildingBase {
     private int soldiersQuantityPerTick = level;
 
-    public BarracksBuilding(String id, Type type, String name, int level, String description) {
-        super(id, type, name, level, description);
+    public BarracksBuilding(Type type, String name, int level, String description) {
+        super(type, name, level, description);
     }
     @Override
     public void onTick(Faction faction) {

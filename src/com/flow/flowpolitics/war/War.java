@@ -25,4 +25,42 @@ public class War {
         this.statistics.put(aggressor, new WarStats(0, 0, 0));
         this.statistics.put(defender, new WarStats(0, 0, 0));
     }
+    public void setWarStatus(WarStatus warStatus) {
+        this.warStatus = warStatus;
+    }
+
+    public void setBattles(List<Battle> battles) {
+        this.battles = battles;
+    }
+
+    public void setStatistics(Map<PolitStructure, WarStats> statistics) {
+        this.statistics = statistics;
+    }
+    public String getId() {
+        return id;
+    }
+
+    public WarType getWarType() {
+        return warType;
+    }
+
+    public WarStatus getWarStatus() {
+        return warStatus;
+    }
+
+    public PolitStructure getAggressor() {
+        return aggressor;
+    }
+
+    public PolitStructure getDefender() {
+        return defender;
+    }
+
+    public List<Battle> getBattles() {
+        return battles;
+    }
+
+    public Map<PolitStructure, WarStats> getStatistics() {
+        return statistics;
+    }
 }

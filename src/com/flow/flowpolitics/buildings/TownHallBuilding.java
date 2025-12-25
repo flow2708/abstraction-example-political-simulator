@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TownHallBuilding extends BuildingBase{
-    public TownHallBuilding(String id, Type type, String name, int level, String description) {
-        super(id, type, name, level, description);
+    public TownHallBuilding(Type type, String name, int level, String description) {
+        super(type, name, level, description);
     }
 
     @Override
